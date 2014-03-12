@@ -42,5 +42,7 @@ For more information please visit:
 http://www.beetrootsoftware.com
 http://www.themethodology.net
 
+The MP3 sage.mp3 in the DolbyTest project is an original composition by Adrian Stevens
+
 This project is not associated with Dobly Laboratories Inc. or Xamarin Inc.
 
