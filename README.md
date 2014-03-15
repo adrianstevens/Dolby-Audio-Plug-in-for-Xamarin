@@ -38,9 +38,11 @@ You should now be able to run/debug the DolbyTest project on an Android device c
 
 *** Differences from documented Java Dolby API ***
 
-OnDolbyAudioProcessingListener has been replaced by IDolbyAudioProcessingListener
+OnDolbyAudioProcessingListener inferface has been replaced by IDolbyAudioProcessingListener
 
 Change .Enabled property of an instance of DolbyAudioProcessing to enable/disable Dolby Processing instead of using .setAudioProcessingEnabled()
+
+Other DolbyAudioProcessing methods have simplified method names
 
 (section incomplete)
 
