@@ -16,11 +16,12 @@ namespace DolbyTest
     public class Activity1 : Activity, MediaPlayer.IOnCompletionListener, IOnDolbyAudioProcessingEventListener
     {
         MediaPlayer mPlayer;
-        DolbyAudioProcessing mDolbyAudioProcessing;
+        static DolbyAudioProcessing mDolbyAudioProcessing;
 
         //controls
         Button btnPlay;
         Button btnDolby;
+        TextView txtStatus;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -42,7 +43,7 @@ namespace DolbyTest
 
             if (mDolbyAudioProcessing == null)
             {
-                Toast.MakeText(this, "Dolby Audio Processing failed", ToastLength.Short).Show();
+                Toast.MakeText(this, "Dolby Audio Processing load failed", ToastLength.Short).Show();
                 return;
             }
         }
@@ -54,6 +55,9 @@ namespace DolbyTest
 
             btnDolby = FindViewById<Button>(Resource.Id.btnDolby);
             btnDolby.Click += btnDolby_Click;
+
+            txtStatus = FindViewById<TextView>(Resource.Id.textStatus);
+            SetStatus("Ready");
         }
 
         void btnPlay_Click(object sender, EventArgs e)
@@ -88,7 +92,24 @@ namespace DolbyTest
         void btnDolby_Click(object sender, EventArgs e)
         {
             if (mDolbyAudioProcessing != null)
-                mDolbyAudioProcessing.Enabled = !mDolbyAudioProcessing.Enabled;
+            {
+                try
+                {
+                    mDolbyAudioProcessing.Enabled = !mDolbyAudioProcessing.Enabled;
+                    SetStatus("Dolby avaliable");
+                }
+                catch (Exception)
+                {
+                    SetStatus("Unable to start Dolby processing");
+                    btnDolby.Enabled = false;
+                }
+            }
+            else
+            {   //should never get here
+                SetStatus("Dolby Audio Processing load failed");
+                btnDolby.Enabled = false;
+            }
+                
             UpdateDolbyBtnText();
         }
 
@@ -128,6 +149,11 @@ namespace DolbyTest
         public void OnDolbyAudioProcessingProfileSelected(DolbyAudioProcessing.PROFILE p0)
         {
 
+        }
+
+        void SetStatus(string status)
+        {
+            txtStatus.Text = "status: " + status;
         }
     }
 }
