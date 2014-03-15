@@ -48,7 +48,7 @@ Other DolbyAudioProcessing methods have simplified method names
 
 *** About ***
 
-This source code can be used without restrictions.
+This source code may be used without restriction
 
 You can find the latest version on github:
 https://github.com/adrianstevens/XamarinAndroid-Dolby
