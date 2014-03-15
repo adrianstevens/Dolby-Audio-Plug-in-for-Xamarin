@@ -6,7 +6,10 @@ Xamarin.Android Binding for the Dolby Java API
 The DolbyAPI solution contains two projects:
 
 DolbyAPI: a Xamarin.Android java binding project for the Dolby API 
+
 DolbyTest: a Xamarin.Android test appication demonstrates the API in C#
+
+DolbyTest2: a Xamarin.Android test appication separating the Dolby Listener code from the Activity
 
 *** Required ***
 
@@ -14,7 +17,7 @@ Xamarin.Android http://www.xamarin.com
 
 The Dolby Android Java API http://developer.dolby.com/tools-tech.aspx
 
-At the time of writing it's been tested with both versions 1.0.0 & 1.1.0
+At the time of writing it's been tested with versions 1.0.0 & 1.1.0 of the Dolby API
 
 To hear the Dolby API working you'll need an Andrdoid device with Dolby hardware.  
 Ex: Kindle Fire HD, Kindle Fire HDX, etc.
@@ -32,6 +35,14 @@ Once you've completed the Installation you should be able to build the DolbyAPI 
 The DolbyTest project references a DLL created by the DolbyAPI.
 
 You should now be able to run/debug the DolbyTest project on an Android device containing Dolby hardware.
+
+*** Differences from documented Java Dolby API ***
+
+OnDolbyAudioProcessingListener has been replaced by IDolbyAudioProcessingListener
+
+Change .Enabled property of an instance of DolbyAudioProcessing to enable/disable Dolby Processing instead of using .setAudioProcessingEnabled()
+
+(section incomplete)
 
 *** About ***
 
