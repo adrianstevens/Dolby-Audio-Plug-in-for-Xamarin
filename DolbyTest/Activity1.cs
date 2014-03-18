@@ -96,7 +96,7 @@ namespace DolbyTest
                 try
                 {
                     mDolbyAudioProcessing.Enabled = !mDolbyAudioProcessing.Enabled;
-                    SetStatus("Dolby avaliable");
+					SetStatus("Dolby Audio avaliable");
                 }
                 catch (Exception)
                 {
@@ -122,10 +122,12 @@ namespace DolbyTest
 
         void UpdateDolbyBtnText()
         {
-            if (mDolbyAudioProcessing.Enabled == true)
-                btnDolby.Text = "Disable Dolby";
+			if (mDolbyAudioProcessing == null)
+				btnDolby.Enabled = false;
+			else if (mDolbyAudioProcessing.Enabled == true)
+				btnDolby.Text = "Disable Dolby Audio";
             else
-                btnDolby.Text = "Enable Dolby";
+				btnDolby.Text = "Enable Dolby Audio";
         }
 
         public void OnDolbyAudioProcessingClientConnected()
