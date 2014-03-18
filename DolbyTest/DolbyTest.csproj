@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DolbyAPI">
-      <HintPath>..\DolbyAPI\bin\Debug\DolbyAPI.dll</HintPath>
+      <HintPath>..\DolbyAudioAPI\bin\Debug\DolbyAPI.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
