@@ -27,9 +27,23 @@ namespace DolbyTest2
 
             dbListener = new DolbyListener(this);
 
-        //    dbListener.InitAudio();
-
             InitControls();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+            if (dbListener != null)
+                dbListener.Suspend();
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+
+            if (dbListener != null)
+                dbListener.Resume();
         }
 
         void InitControls()

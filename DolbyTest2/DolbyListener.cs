@@ -35,7 +35,6 @@ namespace DolbyTest2
         {
             PlayStop(Resource.Raw.sage);
         }
-
         public void PlayStop (int Resource)
         {
             if (mPlayer == null)
@@ -128,6 +127,18 @@ namespace DolbyTest2
             }
 
             mDolbyAudioProcessing.SetProfile(profile);
+        }
+
+        public void Suspend ()
+        {
+            if (isEnabled == true)
+                mDolbyAudioProcessing.SuspendSession(); 
+
+        }
+        public void Resume()
+        {
+            if (isEnabled == true)
+                mDolbyAudioProcessing.RestartSession();
         }
     }
 }
