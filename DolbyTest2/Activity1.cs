@@ -30,12 +30,12 @@ namespace DolbyTest2
             InitControls();
         }
 
-        protected override void OnResume()
+        protected override void OnRestart()
         {
-            base.OnResume();
+            base.OnRestart();
 
             if (dbListener != null)
-                dbListener.Suspend();
+                dbListener.Restart();
         }
 
         protected override void OnStop()
@@ -43,7 +43,7 @@ namespace DolbyTest2
             base.OnStop();
 
             if (dbListener != null)
-                dbListener.Resume();
+                dbListener.Stop();
         }
 
         void InitControls()

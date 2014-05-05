@@ -129,13 +129,13 @@ namespace DolbyTest2
             mDolbyAudioProcessing.SetProfile(profile);
         }
 
-        public void Suspend ()
+        public void Stop ()
         {
             if (isEnabled == true)
                 mDolbyAudioProcessing.SuspendSession(); 
 
         }
-        public void Resume()
+        public void Restart ()
         {
             if (isEnabled == true)
                 mDolbyAudioProcessing.RestartSession();
